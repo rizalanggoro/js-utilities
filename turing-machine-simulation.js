@@ -1,100 +1,318 @@
-// turing machine multi tape
-const getHeadContent = (tape) => {
-  if (tape.length === 0) tape.push({ content: "b", head: true });
-  return tape.filter((it) => it.head === true)[0].content;
-};
-
-const findHeadIndex = (tape) => tape.findIndex((it) => it.head === true);
-
-const moveHead = (tape, direction) => {
-  const index = findHeadIndex(tape);
-  if (direction !== "s") tape[index].head = false;
-
-  if (direction === "r") {
-    if (index === tape.length - 1) {
-      // create new blank at last
-      tape.push({ content: "b", head: true });
-    } else {
-      tape[index + 1].head = true;
-    }
-  } else if (direction === "l") {
-    if (index === 0) {
-      // create new blank at first
-      tape.splice(0, 0, { content: "b", head: true });
-    } else {
-      tape[index - 1].head = true;
+function _0x21fe(_0x54cbf8, _0xfced2f) {
+  const _0x3e6182 = _0x51f0();
+  return (
+    (_0x21fe = function (_0x2b93d7, _0x2dba14) {
+      _0x2b93d7 = _0x2b93d7 - (-0xb * -0x1cd + 0x19a6 + -0x2b88);
+      let _0x475abc = _0x3e6182[_0x2b93d7];
+      return _0x475abc;
+    }),
+    _0x21fe(_0x54cbf8, _0xfced2f)
+  );
+}
+const _0x5e2f1f = _0x21fe;
+(function (_0x1c1564, _0x50341a) {
+  const _0x47a341 = _0x21fe,
+    _0x17de54 = _0x1c1564();
+  while (!![]) {
+    try {
+      const _0x3c3210 =
+        parseInt(_0x47a341(0x20c)) / (-0x2037 * -0x1 + 0x1 * 0x803 + -0x2839) +
+        parseInt(_0x47a341(0x1ee)) / (-0x6e + 0xb49 + 0x1 * -0xad9) +
+        (-parseInt(_0x47a341(0x216)) / (0x20ea + -0x129b + -0x3d * 0x3c)) *
+          (-parseInt(_0x47a341(0x202)) / (-0x165a + -0x5d6 + -0x1 * -0x1c34)) +
+        (parseInt(_0x47a341(0x20b)) / (0x6d1 + 0x5e * 0x1 + -0x72a * 0x1)) *
+          (parseInt(_0x47a341(0x1f6)) /
+            (-0x11d7 * 0x1 + 0x151b + 0xa * -0x53)) +
+        (parseInt(_0x47a341(0x204)) /
+          (-0x9e2 * -0x1 + 0x2309 * 0x1 + -0x2ce4)) *
+          (-parseInt(_0x47a341(0x203)) / (0x26f3 + -0x315 * -0x9 + -0x42a8)) +
+        -parseInt(_0x47a341(0x1f7)) / (0xb57 + 0x2 * -0x617 + 0xe0) +
+        (-parseInt(_0x47a341(0x215)) / (0x4db * -0x7 + -0x2435 + 0x463c)) *
+          (parseInt(_0x47a341(0x1f0)) / (0x2f7 + -0xd * -0xdd + -0xe25));
+      if (_0x3c3210 === _0x50341a) break;
+      else _0x17de54["push"](_0x17de54["shift"]());
+    } catch (_0x3810de) {
+      _0x17de54["push"](_0x17de54["shift"]());
     }
   }
-
-  return tape;
-};
-
-const replaceInput = (tape, newContent) =>
-  tape.map((item) => {
-    if (item.head === true) return { ...item, content: newContent };
-    return item;
-  });
-
-const Turing = (ruleSets) => {
-  return {
-    move: (props) => {
-      let input = "";
-      for (const tape of props.tapeData) {
-        input += getHeadContent(tape);
-      }
-
-      console.log(input);
-
-      const rules = ruleSets[props.currentState];
-      if (rules) {
-        const transition = rules.filter((it) =>
-          it.rule.startsWith(input + "/")
-        )[0];
-        if (transition) {
-          const rule = transition.rule;
-          const slashIndex = rule.indexOf("/");
-          const commaIndex = rule.indexOf(",");
-
-          const toReplace = rule.substring(
-            slashIndex + 1,
-            slashIndex + 1 + props.tapeData.length
-          );
-          const toDirection = rule.substring(commaIndex + 1);
-
-          console.log({ slashIndex, rule, toReplace, toDirection });
-
-          for (let a = 0; a < props.tapeData.length; a++) {
-            props.tapeData[a] = [
-              ...replaceInput(props.tapeData[a], toReplace.substring(a, a + 1)),
-            ];
-            props.tapeData[a] = [
-              ...moveHead(props.tapeData[a], toDirection.substring(a, a + 1)),
-            ];
-          }
-
-          return {
-            newTapeData: [...props.tapeData],
-            transition: {
-              from: props.currentState,
-              input,
-              to: transition.to,
-              replace: toReplace,
-              direction: toDirection,
-            },
-          };
-        }
-      }
-
-      return {
-        newTapeData: [...props.tapeData],
-        transition: {
-          from: props.currentState,
-          input,
-          to: "-",
-          replace: "-",
-          direction: "-",
+})(_0x51f0, 0x7af06 * -0x1 + -0x951d3 * 0x1 + 0x15aa23);
+function _0x51f0() {
+  const _0x176af = [
+    "RibtY",
+    "rule",
+    "filter",
+    "1327535FhsRIs",
+    "42637YMTepq",
+    "log",
+    "indexOf",
+    "length",
+    "push",
+    "content",
+    "substring",
+    "uhYNQ",
+    "aJyJd",
+    "20eTkhym",
+    "2727VUkqFE",
+    "oIttM",
+    "gKcWE",
+    "tapeData",
+    "992746IcQCUL",
+    "findIndex",
+    "2720399pLNmex",
+    "TYVcj",
+    "xJlye",
+    "OsFNQ",
+    "MLkzN",
+    "NKuRs",
+    "12jKBUht",
+    "1554507ePlRlk",
+    "startsWith",
+    "head",
+    "aGnEJ",
+    "SXsDx",
+    "map",
+    "ipcrc",
+    "splice",
+    "currentSta",
+    "BxXPs",
+    "JSuCA",
+    "104iQdFXz",
+    "5720yAZCvj",
+    "1183WyIWzL",
+    "HJukc",
+    "xkNyn",
+    "kBneE",
+  ];
+  _0x51f0 = function () {
+    return _0x176af;
+  };
+  return _0x51f0();
+}
+const getHeadContent = (_0x9095e3) => {
+    const _0x1d0138 = _0x21fe,
+      _0x37df2c = {
+        JSuCA: function (_0x34bf8a, _0x191f45) {
+          return _0x34bf8a === _0x191f45;
         },
       };
-    },
+    if (
+      _0x37df2c[_0x1d0138(0x201)](
+        _0x9095e3[_0x1d0138(0x20f)],
+        0xf * 0x12d + 0x30 * -0xf + 0x2f7 * -0x5
+      )
+    )
+      _0x9095e3[_0x1d0138(0x210)]({ content: "b", head: !![] });
+    return _0x9095e3[_0x1d0138(0x20a)](
+      (_0xace92d) => _0xace92d[_0x1d0138(0x1f9)] === !![]
+    )[0x1541 * -0x1 + 0x4 * -0xcd + 0x1875][_0x1d0138(0x211)];
+  },
+  findHeadIndex = (_0x5f5239) =>
+    _0x5f5239[_0x5e2f1f(0x1ef)](
+      (_0x4d2823) => _0x4d2823[_0x5e2f1f(0x1f9)] === !![]
+    ),
+  moveHead = (_0x53f2c5, _0x517504) => {
+    const _0x38b04a = _0x5e2f1f,
+      _0x221731 = {
+        aJyJd: function (_0x4f31aa, _0x25f5fa) {
+          return _0x4f31aa(_0x25f5fa);
+        },
+        gKcWE: function (_0x57773f, _0x9a329e) {
+          return _0x57773f !== _0x9a329e;
+        },
+        aGnEJ: function (_0x17ffa5, _0x40c645) {
+          return _0x17ffa5 === _0x40c645;
+        },
+        ipcrc: function (_0x558c0a, _0x298e57) {
+          return _0x558c0a === _0x298e57;
+        },
+        NKuRs: function (_0x55e9e9, _0x1a69ff) {
+          return _0x55e9e9 - _0x1a69ff;
+        },
+        RibtY: function (_0x26875f, _0x38c32f) {
+          return _0x26875f + _0x38c32f;
+        },
+        TYVcj: function (_0xb60064, _0x330664) {
+          return _0xb60064 === _0x330664;
+        },
+        HJukc: function (_0xd092ee, _0x4a1083) {
+          return _0xd092ee - _0x4a1083;
+        },
+      },
+      _0xd4d131 = _0x221731[_0x38b04a(0x214)](findHeadIndex, _0x53f2c5);
+    if (_0x221731[_0x38b04a(0x218)](_0x517504, "s"))
+      _0x53f2c5[_0xd4d131][_0x38b04a(0x1f9)] = ![];
+    if (_0x221731[_0x38b04a(0x1fa)](_0x517504, "r"))
+      _0x221731[_0x38b04a(0x1fd)](
+        _0xd4d131,
+        _0x221731[_0x38b04a(0x1f5)](
+          _0x53f2c5[_0x38b04a(0x20f)],
+          -0x2562 + -0x1c96 + -0x1 * -0x41f9
+        )
+      )
+        ? _0x53f2c5[_0x38b04a(0x210)]({ content: "b", head: !![] })
+        : (_0x53f2c5[
+            _0x221731[_0x38b04a(0x208)](
+              _0xd4d131,
+              0x2 * 0xa93 + 0x2 * 0x2b2 + -0x1a89 * 0x1
+            )
+          ][_0x38b04a(0x1f9)] = !![]);
+    else
+      _0x221731[_0x38b04a(0x1f1)](_0x517504, "l") &&
+        (_0x221731[_0x38b04a(0x1fd)](
+          _0xd4d131,
+          0x1 * 0xebf + -0x1 * 0x1606 + -0x26d * -0x3
+        )
+          ? _0x53f2c5[_0x38b04a(0x1fe)](
+              -0x27a * -0x5 + 0x3 * 0x3f2 + -0x1838,
+              -0x1 * -0x232 + -0x121d + -0x1 * -0xfeb,
+              { content: "b", head: !![] }
+            )
+          : (_0x53f2c5[
+              _0x221731[_0x38b04a(0x205)](
+                _0xd4d131,
+                0x27a * -0x4 + 0x2 * -0x1359 + -0x21d * -0x17
+              )
+            ][_0x38b04a(0x1f9)] = !![]));
+    return _0x53f2c5;
+  },
+  replaceInput = (_0x204479, _0x4a53a1) =>
+    _0x204479[_0x5e2f1f(0x1fc)]((_0x446898) => {
+      const _0x333cd1 = _0x5e2f1f,
+        _0x4350ff = {
+          kBneE: function (_0x26d2c8, _0xf02ae6) {
+            return _0x26d2c8 === _0xf02ae6;
+          },
+        };
+      if (_0x4350ff[_0x333cd1(0x207)](_0x446898[_0x333cd1(0x1f9)], !![]))
+        return { ..._0x446898, content: _0x4a53a1 };
+      return _0x446898;
+    }),
+  Turing = (_0x2f7b9f) => {
+    const _0x265137 = {
+      SXsDx: function (_0x438da0, _0x4c45ee) {
+        return _0x438da0(_0x4c45ee);
+      },
+      oIttM: function (_0x46aabf, _0xa74006) {
+        return _0x46aabf + _0xa74006;
+      },
+      BxXPs: function (_0x2b1b15, _0x22f950) {
+        return _0x2b1b15 + _0x22f950;
+      },
+      xkNyn: function (_0x4cfca2, _0x352822) {
+        return _0x4cfca2 + _0x352822;
+      },
+      OsFNQ: function (_0x28e455, _0x264e41) {
+        return _0x28e455 < _0x264e41;
+      },
+      uhYNQ: function (_0x1adf04, _0x2f7b49, _0x38c66d) {
+        return _0x1adf04(_0x2f7b49, _0x38c66d);
+      },
+      xJlye: function (_0x244fc7, _0x22ce69) {
+        return _0x244fc7 + _0x22ce69;
+      },
+      MLkzN: function (_0x59e03f, _0x130a21, _0x25d30b) {
+        return _0x59e03f(_0x130a21, _0x25d30b);
+      },
+    };
+    return {
+      move: (_0x52a376) => {
+        const _0x1ac8cb = _0x21fe;
+        let _0x362194 = "";
+        for (const _0x4297bb of _0x52a376[_0x1ac8cb(0x1ed)]) {
+          _0x362194 += _0x265137[_0x1ac8cb(0x1fb)](getHeadContent, _0x4297bb);
+        }
+        console[_0x1ac8cb(0x20d)](_0x362194);
+        const _0x58a02e = _0x2f7b9f[_0x52a376[_0x1ac8cb(0x1ff) + "te"]];
+        if (_0x58a02e) {
+          const _0x1bfc96 = _0x58a02e[_0x1ac8cb(0x20a)]((_0x474b7e) =>
+            _0x474b7e[_0x1ac8cb(0x209)][_0x1ac8cb(0x1f8)](_0x362194 + "/")
+          )[0x2ab * 0x2 + -0x25c1 * -0x1 + 0x1 * -0x2b17];
+          if (_0x1bfc96) {
+            const _0x52e7c4 = _0x1bfc96[_0x1ac8cb(0x209)],
+              _0x1ebcdb = _0x52e7c4[_0x1ac8cb(0x20e)]("/"),
+              _0x5e3b56 = _0x52e7c4[_0x1ac8cb(0x20e)](","),
+              _0x3a8466 = _0x52e7c4[_0x1ac8cb(0x212)](
+                _0x265137[_0x1ac8cb(0x217)](
+                  _0x1ebcdb,
+                  0x21d3 + -0x25e5 + 0x413
+                ),
+                _0x265137[_0x1ac8cb(0x217)](
+                  _0x265137[_0x1ac8cb(0x200)](
+                    _0x1ebcdb,
+                    -0x81f + -0x288 + -0x3e * -0x2c
+                  ),
+                  _0x52a376[_0x1ac8cb(0x1ed)][_0x1ac8cb(0x20f)]
+                )
+              ),
+              _0x42e251 = _0x52e7c4[_0x1ac8cb(0x212)](
+                _0x265137[_0x1ac8cb(0x206)](
+                  _0x5e3b56,
+                  0x287 * 0x5 + -0xad5 + 0x1 * -0x1cd
+                )
+              );
+            console[_0x1ac8cb(0x20d)]({
+              slashIndex: _0x1ebcdb,
+              rule: _0x52e7c4,
+              toReplace: _0x3a8466,
+              toDirection: _0x42e251,
+            });
+            for (
+              let _0x21f58d = -0x1795 + -0x14f9 + 0xeda * 0x3;
+              _0x265137[_0x1ac8cb(0x1f3)](
+                _0x21f58d,
+                _0x52a376[_0x1ac8cb(0x1ed)][_0x1ac8cb(0x20f)]
+              );
+              _0x21f58d++
+            ) {
+              (_0x52a376[_0x1ac8cb(0x1ed)][_0x21f58d] = [
+                ..._0x265137[_0x1ac8cb(0x213)](
+                  replaceInput,
+                  _0x52a376[_0x1ac8cb(0x1ed)][_0x21f58d],
+                  _0x3a8466[_0x1ac8cb(0x212)](
+                    _0x21f58d,
+                    _0x265137[_0x1ac8cb(0x1f2)](
+                      _0x21f58d,
+                      -0x1 * -0xd13 + 0x2239 + 0x2f4b * -0x1
+                    )
+                  )
+                ),
+              ]),
+                (_0x52a376[_0x1ac8cb(0x1ed)][_0x21f58d] = [
+                  ..._0x265137[_0x1ac8cb(0x1f4)](
+                    moveHead,
+                    _0x52a376[_0x1ac8cb(0x1ed)][_0x21f58d],
+                    _0x42e251[_0x1ac8cb(0x212)](
+                      _0x21f58d,
+                      _0x265137[_0x1ac8cb(0x1f2)](
+                        _0x21f58d,
+                        0x223d * -0x1 + -0x2021 + 0xd * 0x51b
+                      )
+                    )
+                  ),
+                ]);
+            }
+            return {
+              newTapeData: [..._0x52a376[_0x1ac8cb(0x1ed)]],
+              transition: {
+                from: _0x52a376[_0x1ac8cb(0x1ff) + "te"],
+                input: _0x362194,
+                to: _0x1bfc96["to"],
+                replace: _0x3a8466,
+                direction: _0x42e251,
+              },
+            };
+          }
+        }
+        return {
+          newTapeData: [..._0x52a376[_0x1ac8cb(0x1ed)]],
+          transition: {
+            from: _0x52a376[_0x1ac8cb(0x1ff) + "te"],
+            input: _0x362194,
+            to: "-",
+            replace: "-",
+            direction: "-",
+          },
+        };
+      },
+    };
   };
-};
