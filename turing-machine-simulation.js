@@ -1,3 +1,5 @@
+// turing machine multi tape
+
 const getHeadContent = (tape) => {
   if (tape.length === 0) tape.push({ content: "b", head: true });
   return tape.filter((it) => it.head === true)[0].content;
