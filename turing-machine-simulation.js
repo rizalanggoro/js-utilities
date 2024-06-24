@@ -1,5 +1,4 @@
 // turing machine multi tape
-
 const getHeadContent = (tape) => {
   if (tape.length === 0) tape.push({ content: "b", head: true });
   return tape.filter((it) => it.head === true)[0].content;
@@ -36,7 +35,7 @@ const replaceInput = (tape, newContent) =>
     return item;
   });
 
-export default Turing = (ruleSets) => {
+const Turing = (ruleSets) => {
   return {
     move: (props) => {
       let input = "";
@@ -99,3 +98,5 @@ export default Turing = (ruleSets) => {
     },
   };
 };
+
+module.exports = { Turing };
