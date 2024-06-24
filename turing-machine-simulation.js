@@ -98,5 +98,3 @@ const Turing = (ruleSets) => {
     },
   };
 };
-
-module.exports = { Turing };
